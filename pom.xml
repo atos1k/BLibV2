@@ -314,8 +314,13 @@
         <dependency>
             <groupId>dev.by1337.item</groupId>
             <artifactId>ConfigurableItems</artifactId>
-            <version>1.5.4</version>
+            <version>1.5.5</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>dev.by1337.edsl</groupId>
+            <artifactId>EventDSL</artifactId>
+            <version>1.5.2</version>
         </dependency>
 
         <dependency>

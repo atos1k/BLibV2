@@ -17,6 +17,7 @@ import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -55,10 +56,10 @@ public class ClasspathUtil {
 
     public static File fixJar(File file, Plugin plugin, boolean refix) throws Exception {
         if (!file.getName().endsWith(".jar")) return file;
-
+        var millis = Files.getLastModifiedTime(file.toPath()).toMillis();
         File out = new File(
                 file.getParentFile(),
-                ".fixed/" + ServerVersion.CURRENT_ID + "/" + file.getName()
+                ".fixed/" + ServerVersion.CURRENT_ID + "/" + millis + "-" + file.getName()
         );
         if (out.exists() && !refix) return out;
         out.getParentFile().mkdirs();

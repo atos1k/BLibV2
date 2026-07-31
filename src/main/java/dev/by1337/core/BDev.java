@@ -33,12 +33,14 @@ public class BDev extends JavaPlugin {
     public static Path HOME_DIR;
     private CommandWrapper commands;
     private ParticleRenderBootstrapper particles;
+    private ThemesBotter themes;
 
     public BDev() {
         getDataFolder().mkdirs();
         HOME_DIR = getDataFolder().toPath();
         Bootstrap.bootstrap(this);
         BLibBridge.bootstrap(this);
+        themes = new ThemesBotter(this);
     }
 
     @Override
@@ -48,6 +50,7 @@ public class BDev extends JavaPlugin {
         } catch (Exception e) {
             getSLF4JLogger().warn("Failed fo load legacy BLib!", e);
         }
+        themes.onLoad();
     }
 
     @Override
@@ -61,6 +64,7 @@ public class BDev extends JavaPlugin {
         particles.enable();
         int ignored = ItemType.BARRIER.getProtocolId(Version.VERSION.protocolVersion()); //preload
         int ignored2 = BlockType.BARRIER.getProtocolId(Version.VERSION.protocolVersion()); //preload
+        themes.onEnable();
     }
 
     @Override
@@ -68,6 +72,7 @@ public class BDev extends JavaPlugin {
         particles.disable();
         commands.unregister();
         BLibBridge.onDisable();
+        themes.onDisable();
     }
 
     private Command<CommandSender> create() {
