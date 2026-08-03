@@ -221,16 +221,16 @@ public class FastExpressionParser {
                 result *= Math.pow(10, exp);
             }
         }
-
+        loop:
         while (reader.hasNext()) {
             c = reader.next();
-            if (c == 'k' || c == 'K') {
-                result *= 1000;
-            } else if (c == 'm' || c == 'M') {
-                result *= 1_000_000;
-            } else {
-                reader.back();
-                break;
+            switch (c){
+                case 'k', 'K', 'к', 'К' -> result *= 1000;
+                case 'm', 'M', 'м', 'М' -> result *= 1_000_000;
+                default -> {
+                    reader.back();
+                    break loop;
+                }
             }
         }
 

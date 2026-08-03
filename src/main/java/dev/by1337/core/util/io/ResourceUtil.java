@@ -4,6 +4,7 @@ import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import dev.by1337.yaml.YamlMap;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 
@@ -21,6 +22,24 @@ public class ResourceUtil {
             plugin.saveResource(path, false);
         }
         return f;
+    }
+
+    @Nullable
+    @CanIgnoreReturnValue
+    public static File saveOptionalIfNotExist(@NotNull String path, @NotNull Plugin plugin) {
+        path = path.replace('\\', '/');
+        if (path.startsWith("/")) {
+            path = path.substring(1);
+        }
+        try {
+            var f = new File(plugin.getDataFolder(), path);
+            if (!f.exists()) {
+                plugin.saveResource(path, false);
+            }
+            return f;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public static YamlMap load(@NotNull String path, @NotNull Plugin plugin) {
