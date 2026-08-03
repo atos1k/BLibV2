@@ -50,7 +50,7 @@ public class BLibBridge {
         File outFolder = new File(plugin.getDataFolder(), ".bridges");
         outFolder.mkdirs();
         File file = new File(outFolder, "BLib-bridge-1.9.7.jar");
-        if (!file.exists() || BDev.IS_SNAPSHOT) {
+        if (!file.exists()) {
             try (var in = getInputStream("bridges/BLib-bridge-1.9.7.jar")) {
                 if (in == null) {
                     throw new FileNotFoundException("Unable to find bridges/BLib-bridge-1.9.7.jar");
@@ -62,7 +62,7 @@ public class BLibBridge {
                 throw new RuntimeException("Failed to load bridge BLib-bridge-1.9.7.jar", e);
             }
         }
-        ClasspathUtil.addUrl(plugin, file.toPath(), BDev.IS_SNAPSHOT);
+        ClasspathUtil.addUrl(plugin, file.toPath());
     }
 
     @Nullable

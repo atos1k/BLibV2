@@ -14,6 +14,7 @@ import java.io.*;
 import java.lang.invoke.MethodHandles;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 @ApiStatus.Internal
@@ -21,7 +22,7 @@ class Bootstrap {
 
     private static final Logger log = LoggerFactory.getLogger("BLib");
 
-    public static void bootstrap(Plugin plugin) {
+    public static void bootstrap(Plugin plugin, File jar) {
         Path libraries = plugin.getDataFolder().toPath().resolve(".libraries");
         libraries.toFile().mkdirs();
         if (!hasClass("org.objectweb.asm.tree.ClassNode")) {
@@ -39,6 +40,17 @@ class Bootstrap {
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         }
+        try {
+            File bridges = new File(plugin.getDataFolder(), ".bridges");
+            File version = new File(plugin.getDataFolder(), ".version");
+            long time = Files.getLastModifiedTime(jar.toPath()).toMillis();
+            if (!version.exists() || time != readLong(version)) {
+                writeLong(version, time);
+                deleteFolder(bridges);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         loadNMSBridge(plugin);
         try {
             Class<?> boot = Class.forName("dev.by1337.core.BridgeBootstrapper");
@@ -48,15 +60,38 @@ class Bootstrap {
         }
     }
 
+    private static long readLong(File file) throws IOException {
+        try (RandomAccessFile raf = new RandomAccessFile(file, "r")) {
+            return raf.readLong();
+        }
+    }
+
+    private static void writeLong(File file, long l) throws IOException {
+        try (RandomAccessFile raf = new RandomAccessFile(file, "rw")) {
+            raf.setLength(8);
+            raf.writeLong(l);
+        }
+    }
+
+    private static void deleteFolder(File file) {
+        if (file.isDirectory()) {
+            for (File f : file.listFiles()) {
+                deleteFolder(f);
+            }
+            file.delete();
+        } else {
+            file.delete();
+        }
+    }
+
     private static void loadNMSBridge(Plugin plugin) {
-        String bridge = "bridge-" + plugin.getDescription().getVersion() + "+";
         try {
-            loadNMSBridge(plugin, bridge + ServerVersion.CURRENT_ID + ".jar");
+            loadNMSBridge(plugin, "bridge+" + ServerVersion.CURRENT_ID + ".jar");
         } catch (IOException e) {
             if (ServerVersion.is1_20_6orNewer()) {
                 log.warn("Nms bridge for {} not found! Attempting to load for {}", ServerVersion.CURRENT_ID, ServerVersion.LastKnown.ID);
                 try {
-                    loadNMSBridge(plugin, bridge + ServerVersion.LastKnown.ID + ".jar");
+                    loadNMSBridge(plugin, "bridge+" + ServerVersion.LastKnown.ID + ".jar");
                 } catch (IOException ignored) {
                     throw new RuntimeException(e);
                 }
@@ -70,7 +105,7 @@ class Bootstrap {
         File outFolder = new File(plugin.getDataFolder(), ".bridges");
         outFolder.mkdirs();
         File file = new File(outFolder, bridgeName);
-        if (!file.exists() || BDev.IS_SNAPSHOT) {
+        if (!file.exists()) {
             try (var in = getInputStream("bridges/" + bridgeName)) {
                 if (in == null) {
                     if (file.exists()) {
@@ -87,7 +122,7 @@ class Bootstrap {
                 throw new IOException("Failed to load nms bridge " + bridgeName, e);
             }
         }
-        ClasspathUtil.addUrl(plugin, file.toPath(), BDev.IS_SNAPSHOT);
+        ClasspathUtil.addUrl(plugin, file.toPath());
     }
 
     private static boolean hasClass(String className) {

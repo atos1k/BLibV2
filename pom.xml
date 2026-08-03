@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dev.by1337.core</groupId>
     <artifactId>BLibV2</artifactId>
-    <version>1.7.7</version>
+    <version>1.7.8</version>
 
     <properties>
         <java.version>16</java.version>
@@ -58,140 +58,140 @@
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.16.5</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.16.5.jar</destFileName>
+                                    <destFileName>bridge+1.16.5.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.17.1</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.17.1.jar</destFileName>
+                                    <destFileName>bridge+1.17.1.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.18.2</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.18.2.jar</destFileName>
+                                    <destFileName>bridge+1.18.2.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.19.4</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.19.4.jar</destFileName>
+                                    <destFileName>bridge+1.19.4.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.20.1</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.20.1.jar</destFileName>
+                                    <destFileName>bridge+1.20.1.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.20.2</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.20.2.jar</destFileName>
+                                    <destFileName>bridge+1.20.2.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.20.4</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.20.4.jar</destFileName>
+                                    <destFileName>bridge+1.20.4.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.20.6</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.20.6.jar</destFileName>
+                                    <destFileName>bridge+1.20.6.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.21</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.21.jar</destFileName>
+                                    <destFileName>bridge+1.21.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.21.3</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.21.3.jar</destFileName>
+                                    <destFileName>bridge+1.21.3.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.21.4</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.21.4.jar</destFileName>
+                                    <destFileName>bridge+1.21.4.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.21.5</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.21.5.jar</destFileName>
+                                    <destFileName>bridge+1.21.5.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.21.6</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.21.6.jar</destFileName>
+                                    <destFileName>bridge+1.21.6.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.21.7</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.21.7.jar</destFileName>
+                                    <destFileName>bridge+1.21.7.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.21.8</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.21.8.jar</destFileName>
+                                    <destFileName>bridge+1.21.8.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.21.9</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.21.9.jar</destFileName>
+                                    <destFileName>bridge+1.21.9.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.21.10</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.21.10.jar</destFileName>
+                                    <destFileName>bridge+1.21.10.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+1.21.11</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+1.21.11.jar</destFileName>
+                                    <destFileName>bridge+1.21.11.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+26.1.2</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+26.1.2.jar</destFileName>
+                                    <destFileName>bridge+26.1.2.jar</destFileName>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>dev.by1337.core.nms</groupId>
                                     <artifactId>BLibNms</artifactId>
                                     <version>1.5+26.2</version>
                                     <outputDirectory>${project.build.outputDirectory}/bridges</outputDirectory>
-                                    <destFileName>bridge-${version}+26.2.jar</destFileName>
+                                    <destFileName>bridge+26.2.jar</destFileName>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>

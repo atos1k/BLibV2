@@ -29,7 +29,6 @@ import java.util.Objects;
 
 @ApiStatus.Internal
 public class BDev extends JavaPlugin {
-    public static boolean IS_SNAPSHOT = true;
     public static Path HOME_DIR;
     private CommandWrapper commands;
     private ParticleRenderBootstrapper particles;
@@ -38,7 +37,7 @@ public class BDev extends JavaPlugin {
     public BDev() {
         getDataFolder().mkdirs();
         HOME_DIR = getDataFolder().toPath();
-        Bootstrap.bootstrap(this);
+        Bootstrap.bootstrap(this, getFile());
         BLibBridge.bootstrap(this);
         themes = new ThemesBotter(this);
     }
