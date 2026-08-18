@@ -3,8 +3,6 @@ package dev.by1337.core.util.network;
 import dev.by1337.core.util.asm.AsmUtils;
 import io.netty.channel.Channel;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.ApiStatus;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;

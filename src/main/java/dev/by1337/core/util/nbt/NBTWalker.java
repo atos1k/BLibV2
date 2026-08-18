@@ -1,5 +1,6 @@
 package dev.by1337.core.util.nbt;
 
+@Deprecated
 public interface NBTWalker {
     byte TAG_BYTE = 1;
     byte TAG_SHORT = 2;
@@ -15,6 +16,7 @@ public interface NBTWalker {
     byte TAG_LONG_ARRAY = 12;
 
     boolean isInList();
+
     boolean isInCompound();
 
     boolean hasNext();

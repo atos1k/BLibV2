@@ -5,6 +5,7 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
+@Deprecated
 public class SourcedComponent implements SourcedComponentLike {
     private final Component component;
     private final String source;

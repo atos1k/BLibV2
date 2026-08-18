@@ -33,6 +33,7 @@ public class MiniMessage {
     public static Component deserialize(String text) {
         return deserialize(text, null);
     }
+
     public static Component deserialize(String text, @Nullable Locale locale) {
         if (text.contains("<off_title>")) {
             var arr = text.split("<off_title>");
@@ -90,8 +91,8 @@ public class MiniMessage {
     }
 
     private static Component deserialize0(String text, @Nullable Locale locale) {
-        var c =  MINI_MESSAGE.apply(Legacy2MiniMessage.convert(text));
-        if (locale != null){
+        var c = MINI_MESSAGE.apply(Legacy2MiniMessage.convert(text));
+        if (locale != null) {
             return GlobalTranslator.render(c, locale);
         }
         return c;

@@ -4,6 +4,7 @@ import dev.by1337.core.util.nbt.impl.NBTStreamWriterImpl;
 import dev.by1337.core.util.nbt.impl.SNBTStreamWriter;
 import io.netty.buffer.ByteBuf;
 
+@Deprecated
 public interface NBTStreamWriter {
     byte TAG_BYTE = 1;
     byte TAG_SHORT = 2;

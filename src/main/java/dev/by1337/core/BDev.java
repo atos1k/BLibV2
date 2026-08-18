@@ -1,6 +1,6 @@
 package dev.by1337.core;
 
-import dev.by1337.cmd.Command;
+import dev.by1337.cmd.*;
 import dev.by1337.core.bridge.inventory.ItemStackSerializer;
 import dev.by1337.core.bridge.nbt.NbtBridge;
 import dev.by1337.core.bridge.world.BlockEntityUtil;
@@ -19,8 +19,12 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelOutboundHandler;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.HandlerList;
+import org.bukkit.plugin.RegisteredListener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.ApiStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -29,6 +33,7 @@ import java.util.Objects;
 
 @ApiStatus.Internal
 public class BDev extends JavaPlugin {
+    private static final Logger log = LoggerFactory.getLogger(BDev.class);
     public static Path HOME_DIR;
     private CommandWrapper commands;
     private ParticleRenderBootstrapper particles;
@@ -143,6 +148,62 @@ public class BDev extends JavaPlugin {
                                 player.getInventory().addItem(item.asQuantity(x)).forEach((slot, i) -> player.getWorld().dropItemNaturally(player.getLocation(), i));
                             }
                             s.sendMessage("done");
+                        }))
+                .sub(new Command<CommandSender>("listening").executor(
+                        new Argument<CommandSender, Class<?>>("count") {
+                            @Override
+                            public void parse(CommandSender ctx, CommandReader reader, ArgumentMap out) throws CommandMsgError {
+                                var input = reader.readString();
+                                try {
+                                    out.put(name, Class.forName(input));
+                                } catch (Exception ex) {
+                                    throw new CommandMsgError(ex.getMessage());
+                                }
+                            }
+
+                            @Override
+                            public void suggest(CommandSender ctx, CommandReader reader, SuggestionsList suggestions, ArgumentMap args) throws CommandMsgError {
+                                try {
+                                    for (HandlerList handlerList : HandlerList.getHandlerLists()) {
+
+                                    }
+
+/*                                    var f = EventExecutor.class.getDeclaredField("eventExecutorMap");
+                                    f.setAccessible(true);
+                                    ConcurrentMap<Method, Class<? extends EventExecutor>> eventExecutorMap = (ConcurrentMap<Method, Class<? extends EventExecutor>>) f.get(null);
+                                    var input = reader.readString();
+                                    for (Method method : eventExecutorMap.keySet()) {
+                                        var arr = method.getParameterTypes();
+                                        if (arr.length != 1) continue;
+                                        var name = arr[0].getCanonicalName();
+                                        if (name.startsWith(input)){
+                                            suggestions.suggest(name);
+                                        }
+                                    }*/
+                                } catch (Exception ex) {
+                                    throw new CommandMsgError(ex.getMessage());
+                                }
+                            }
+                        },
+                        (s, cl) -> {
+                            if (cl == null) {
+                                s.sendMessage("use /bdev listening <class>");
+                                return;
+                            }
+                            StringBuilder sb = new StringBuilder("[\n");
+                            // Class<?> cl = BlockExplodeEvent.class;
+                            try {
+                                var mn = cl.getMethod("getHandlerList");
+                                HandlerList list = (HandlerList) mn.invoke(null);
+                                for (RegisteredListener listener : list.getRegisteredListeners()) {
+                                    sb.append(listener.getPlugin().getName()).append(": ").append(listener.getListener().getClass().getCanonicalName()).append("\n");
+                                }
+                            } catch (Exception e) {
+                                throw new RuntimeException(e);
+                            }
+                            sb.append("]");
+                            log.info(sb.toString());
+                            s.sendMessage(sb.toString());
                         }))
                 ;
     }

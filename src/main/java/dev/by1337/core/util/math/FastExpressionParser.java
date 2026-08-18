@@ -224,7 +224,7 @@ public class FastExpressionParser {
         loop:
         while (reader.hasNext()) {
             c = reader.next();
-            switch (c){
+            switch (c) {
                 case 'k', 'K', 'к', 'К' -> result *= 1000;
                 case 'm', 'M', 'м', 'М' -> result *= 1_000_000;
                 default -> {

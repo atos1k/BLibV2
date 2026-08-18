@@ -1,7 +1,5 @@
 package dev.by1337.core.command.bcmd.argument.util;
 
-import dev.by1337.core.command.bcmd.argument.ArgumentRegistry;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

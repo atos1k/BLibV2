@@ -1,5 +1,6 @@
 package dev.by1337.core.util.nbt;
 
+@Deprecated
 public abstract class NBTStream implements NBTStreamWriter {
 
     @Override

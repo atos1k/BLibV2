@@ -4,14 +4,11 @@ import dev.by1337.core.util.nbt.NBTStream;
 import dev.by1337.core.util.nbt.NBTStreamWriter;
 import dev.by1337.core.util.nbt.NBTWalker;
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.handler.codec.EncoderException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.IOException;
-import java.util.zip.GZIPOutputStream;
-
+@Deprecated
 public final class NBTStreamWriterImpl extends NBTStream implements NBTStreamWriter {
     public static byte TAG_BYTE = 1;
     public static byte TAG_SHORT = 2;
@@ -46,21 +43,26 @@ public final class NBTStreamWriterImpl extends NBTStream implements NBTStreamWri
         current = new CompoundStream(null);
     }
 
-    private void writeUTF(String s){
+    private void writeUTF(String s) {
         writeUTF(buf, s);
     }
-    private void writeByte(int b){
+
+    private void writeByte(int b) {
         buf.writeByte(b);
     }
-    private void writeByte(byte b){
+
+    private void writeByte(byte b) {
         buf.writeByte(b);
     }
-    private void writeBytes(byte[] b){
+
+    private void writeBytes(byte[] b) {
         buf.writeBytes(b);
     }
+
     private void writeShort(int v) {
         buf.writeShort(v);
     }
+
     private void writeShort(short v) {
         buf.writeShort(v);
     }
@@ -68,12 +70,15 @@ public final class NBTStreamWriterImpl extends NBTStream implements NBTStreamWri
     private void writeInt(int v) {
         buf.writeInt(v);
     }
+
     private void writeLong(long v) {
         buf.writeLong(v);
     }
+
     private void writeFloat(float v) {
         buf.writeFloat(v);
     }
+
     private void writeDouble(double v) {
         buf.writeDouble(v);
     }
@@ -197,6 +202,7 @@ public final class NBTStreamWriterImpl extends NBTStream implements NBTStreamWri
         public void popList() {
             throw new UnsupportedOperationException("Only in list!");
         }
+
         @Override
         public void close() {
             current = perv;

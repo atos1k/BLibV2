@@ -36,7 +36,7 @@ public class GlobalRegistryItem<C> extends Argument<C, ItemStack> {
             for (ItemRegistry<?> value : GlobalItemRegistry.values()) {
                 for (ItemModelHolder holder : value) {
                     var id = ((ItemRegistry) value).getId(holder);
-                    if (s.startsWith(id) || s.startsWith(value.space())){
+                    if (s.startsWith(id) || s.startsWith(value.space())) {
                         suggestions.suggest(value.space() + ":" + id);
                     }
                     if (!suggestions.hasFree()) return;

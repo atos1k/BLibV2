@@ -9,7 +9,7 @@ public class CommandError extends CommandMsgError {
         super(message);
     }
 
-    public CommandError(String message, Object ... args) {
+    public CommandError(String message, Object... args) {
         super(MessageFormatter.apply(message, message));
     }
 }

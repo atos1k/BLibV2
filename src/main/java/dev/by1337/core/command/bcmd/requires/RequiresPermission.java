@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 
 public class RequiresPermission<T extends CommandSender> implements Requires<T> {
     private final String permission;
+
     public RequiresPermission(String permission) {
         this.permission = permission;
     }

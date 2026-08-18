@@ -6,6 +6,7 @@ import dev.by1337.core.util.nbt.NBTStreamWriter;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 
+@Deprecated
 public final class SNBTStreamWriter extends NBTStream implements NBTStreamWriter {
     private final Appendable writer;
     private boolean separator;
@@ -144,7 +145,7 @@ public final class SNBTStreamWriter extends NBTStream implements NBTStreamWriter
             if (separator) writer.append(',');
             writer.append("[B;");
             for (int i = 0; i < v.length; i++) {
-                if (i != 0){
+                if (i != 0) {
                     writer.append(",");
                 }
                 writer.append(Byte.toString(v[i])).append("B");
@@ -162,7 +163,7 @@ public final class SNBTStreamWriter extends NBTStream implements NBTStreamWriter
             if (separator) writer.append(',');
             writer.append("[I;");
             for (int i = 0; i < v.length; i++) {
-                if (i != 0){
+                if (i != 0) {
                     writer.append(",");
                 }
                 writer.append(Integer.toString(v[i]));
@@ -181,7 +182,7 @@ public final class SNBTStreamWriter extends NBTStream implements NBTStreamWriter
             if (separator) writer.append(',');
             writer.append("[L;");
             for (int i = 0; i < v.length; i++) {
-                if (i != 0){
+                if (i != 0) {
                     writer.append(",");
                 }
                 writer.append(Long.toString(v[i])).append("L");

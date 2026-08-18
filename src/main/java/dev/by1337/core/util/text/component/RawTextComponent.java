@@ -6,6 +6,7 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
+@Deprecated
 public record RawTextComponent(String source) implements SourcedComponentLike {
 
     public @NonNull Component asComponent(PlaceholderApplier placeholders) {

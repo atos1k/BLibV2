@@ -12,12 +12,12 @@ public class MessageFormatter {
      * Formats a string by replacing placeholders in the form of "{}" or "{index}" with the corresponding
      * arguments provided. If the placeholder contains a numeric index, the argument at that index is used.
      * Otherwise, arguments are used in the order they appear.
-     *
+     * <p>
      * Placeholders without a matching argument are left as is. If there are more arguments than placeholders,
      * extra arguments are ignored. Handles nested braces by treating them as regular characters.
      *
      * @param source the string containing placeholders to be replaced
-     * @param args the arguments to replace the placeholders with
+     * @param args   the arguments to replace the placeholders with
      * @return the formatted string with placeholders replaced by the corresponding arguments
      */
     public static String apply(String source, Object... args) {

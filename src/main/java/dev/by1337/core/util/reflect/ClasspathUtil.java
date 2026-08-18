@@ -30,6 +30,7 @@ public class ClasspathUtil {
     public static void addUrl(Plugin plugin, Path path) {
         addUrl(plugin, path, false);
     }
+
     public static void addUrl(Plugin plugin, Path path, boolean refix) {
         try {
             File file;

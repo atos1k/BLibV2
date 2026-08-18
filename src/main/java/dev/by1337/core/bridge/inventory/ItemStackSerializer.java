@@ -22,6 +22,7 @@ public interface ItemStackSerializer {
 
     @Deprecated
     String toSNbt(ItemStack itemStack, @Nullable World world);
+
     @Deprecated
     ItemStack fromSNbt(String snbt);
 

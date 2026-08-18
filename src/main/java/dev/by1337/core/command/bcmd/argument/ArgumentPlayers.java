@@ -15,6 +15,7 @@ public class ArgumentPlayers<C> extends Argument<C, List<Player>> {
         super(name);
         single = false;
     }
+
     public ArgumentPlayers(String name, boolean single) {
         super(name);
         this.single = single;
@@ -50,7 +51,7 @@ public class ArgumentPlayers<C> extends Argument<C, List<Player>> {
     @Override
     public void suggest(C ctx, CommandReader reader, SuggestionsList suggestions, ArgumentMap args) throws CommandMsgError {
         String str = reader.readString().toLowerCase();
-        if (!single){
+        if (!single) {
             suggestions.suggest("-all");
             suggestions.suggest("*");
         }

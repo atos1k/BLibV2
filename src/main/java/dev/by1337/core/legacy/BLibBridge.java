@@ -1,14 +1,15 @@
 package dev.by1337.core.legacy;
 
-import dev.by1337.core.BDev;
 import dev.by1337.core.util.reflect.ClasspathUtil;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 
+@ApiStatus.Internal
 public class BLibBridge {
     private static Class<?> bApiClass;
     private static Object bApi;

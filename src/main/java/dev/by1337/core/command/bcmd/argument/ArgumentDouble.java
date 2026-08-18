@@ -13,7 +13,7 @@ public class ArgumentDouble<C> extends Argument<C, Double> {
         super(name);
     }
 
-    public static Double getOrThrow(String key, ArgumentMap map, String error){
+    public static Double getOrThrow(String key, ArgumentMap map, String error) {
         Object o = map.get(key);
         if (o instanceof Double) {
             return (Double) o;
@@ -35,11 +35,11 @@ public class ArgumentDouble<C> extends Argument<C, Double> {
     @Override
     public void suggest(C ctx, CommandReader reader, SuggestionsList suggestions, ArgumentMap args) throws CommandMsgError {
         String str = reader.readString();
-        if (str.isBlank()){
+        if (str.isBlank()) {
             suggestions.suggest("10");
             return;
         }
-        if (str.endsWith("*")){
+        if (str.endsWith("*")) {
             int x = 32;
             if (ctx instanceof Player pl) {
                 var item = pl.getInventory().getItemInMainHand();
@@ -55,6 +55,7 @@ public class ArgumentDouble<C> extends Argument<C, Double> {
             throw new CommandMsgError("must be a number");
         }
     }
+
     @Override
     public boolean compilable() {
         return true;

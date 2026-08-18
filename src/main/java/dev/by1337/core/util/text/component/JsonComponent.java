@@ -7,6 +7,7 @@ import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
+@Deprecated
 public class JsonComponent implements SourcedComponentLike {
     private final String source;
     private final String json;

@@ -902,7 +902,7 @@ public class BinaryNbt {
         }
     }
 
-    private static class StringEscaper{
+    private static class StringEscaper {
         public static String escape(String s) {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < s.length(); i++) {

@@ -5,6 +5,7 @@ import dev.by1337.core.ServerVersion;
 import net.kyori.adventure.text.ComponentLike;
 import org.bukkit.Bukkit;
 
+@Deprecated
 public class SourcedComponentFactory {
     private static final boolean JSON_SUPPORT = ServerVersion.is1_20_4orOlder();
 
