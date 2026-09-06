@@ -33,6 +33,9 @@ class Bootstrap {
         if (!hasClass("org.joml.Quaternionf")) {
             ClasspathUtil.addUrl(plugin, RepositoryUtil.download("org.joml:joml:1.10.8", libraries));
         }
+        if (!hasClass("com.github.benmanes.caffeine.cache.Caffeine")) {
+            ClasspathUtil.addUrl(plugin, RepositoryUtil.download("com.github.ben-manes.caffeine:caffeine:3.2.4", libraries));
+        }
         try {
             var lookup = MethodHandles.lookup();
             lookup.ensureInitialized(MiniMessage.class);
